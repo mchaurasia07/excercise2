@@ -34,4 +34,20 @@ public class CustomerService {
     public boolean delete(int customerId){
         return repository.delete(customerId);
     }
+
+    public void createCust(Customer customer){
+        this.createCustomer(customer);
+    }
+
+    public List<Customer> findCustomerByFirstName(String firstName){
+        return this.findByFirstName(firstName);
+    }
+
+    public List<Customer> findAllCustomer(){
+        return this.findAll();
+    }
+
+    public int custCount(){
+        return this.count();
+    }
 }
