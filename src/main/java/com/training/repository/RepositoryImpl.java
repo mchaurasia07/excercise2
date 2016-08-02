@@ -5,18 +5,31 @@ import com.training.Customer;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.*;
+import org.mockito.*;
+
+
 /**
  * Created by mchaurasia on 04-07-2016.
  */
 public class RepositoryImpl implements Repository {
 
+	@Spy
     List<Customer> list = new ArrayList<Customer>();
 
     public void createCustomer(Customer customer) {
         list.add(customer);
     }
 
-    public Customer findByCustomerById(int id) {
+    public List<Customer> getList() {
+		return list;
+	}
+
+	public void setList(List<Customer> list) {
+		this.list = list;
+	}
+
+	public Customer findByCustomerById(int id) {
         Customer customer = null;
         for(Customer cust : list){
             if(id == cust.getId()) {
