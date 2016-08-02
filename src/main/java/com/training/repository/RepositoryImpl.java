@@ -4,12 +4,14 @@ import com.training.Customer;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.mockito.*;
 
 /**
  * Created by mchaurasia on 04-07-2016.
  */
 public class RepositoryImpl implements Repository {
 
+    @Spy
     List<Customer> list = new ArrayList<Customer>();
 
     public void createCustomer(Customer customer) {
