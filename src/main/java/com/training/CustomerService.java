@@ -10,9 +10,9 @@ import java.util.List;
  */
 public class CustomerService {
 
-    Repository repository = new RepositoryImpl();
+    private Repository repository = new RepositoryImpl();
 
-    void createCustomer(Customer customer){
+    public void createCustomer(Customer customer){
         repository.createCustomer(customer);
     }
 
@@ -20,18 +20,28 @@ public class CustomerService {
         return repository.findByCustomerById(id);
     }
 
-    List<Customer> findByFirstName(String firstName){
+    public List<Customer> findByFirstName(String firstName){
         return repository.findByFirstName(firstName);
     }
 
-    List<Customer> findAll(){
+    public List<Customer> findAll(){
         return repository.findAll();
     }
-    int count(){
+    public int count(){
         return repository.count();
     }
 
     public boolean delete(int customerId){
         return repository.delete(customerId);
     }
+
+	public Repository getRepository() {
+		return repository;
+	}
+
+	public void setRepository(Repository repository) {
+		this.repository = repository;
+	}
+    
+    
 }
